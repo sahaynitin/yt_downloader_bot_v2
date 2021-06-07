@@ -1,13 +1,13 @@
 {
-  "name": "Leo YouTube Downloader Bot",
+  "name": "Leo YT Downloader Bot",
   "description": "A telegram bot To Download Youtube Files ",
   "logo": "https://telegra.ph/file/7e3b9b953faa762894532.jpg",
   "keywords": [
     "Youtube","YoutubeDownloader"
   ],
-  "repository": "https://github.com/Naviya2/Youtube-Downloader-Bot",
+  "repository": "https://github.com/Naviya2/LeoYTDownloaderBot",
   "success_url": "https://t.me/leoyoutubedownloaderbot",
-  "website": "https://github.com/Naviya2/Youtube-Downloader-Bot",
+  "website": "https://github.com/Naviya2/LeoYTDownloaderBot",
   "env": {
         "API_ID": {"description": "Get this value from https://my.telegram.org", "required": true},
         "API_HASH": {"description": "Get this value from https://my.telegram.org" , "required": true},
