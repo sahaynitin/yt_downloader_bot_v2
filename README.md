@@ -1,7 +1,7 @@
 # LeoYTDownloaderBot
 A Simple  Youtube Downloader Bot (English)
 <p align="center">
-  <img src="https://telegra.ph/file/7e3b9b953faa762894532.jpg"></p>
+  <img src="https://telegra.ph/file/119f1b265e713c0e41ad7.jpg"></p>
 **My Features**:
 👉 Upload as file from any Youtube link
 
