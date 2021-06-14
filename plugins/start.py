@@ -9,7 +9,7 @@ async def start(client, message):
         InlineKeyboardButton("Rate us ★", url="https://t.me/tlgrmcbot?start=leoyoutubedownloaderbot-review")],
         
         [InlineKeyboardButton("Updates Channel 🗣", url="https://t.me/new_ehi"),
-        InlineKeyboardButton("Support Group 👥", url="https://t.me/leosupportx")]
+        InlineKeyboardButton("Support Group 👥", url="https://t.me/leosupportx")],
         
         [InlineKeyboardButton("➕ Add me to your group ➕", url="https://t.me/leoyoutubedownloaderbot?startgroup=true")]
     ])
