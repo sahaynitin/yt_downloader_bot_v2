@@ -1,9 +1,7 @@
 import asyncio
 import os
-
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup                      
 from pyrogram import (Client,
-                      InlineKeyboardButton,
-                      InlineKeyboardMarkup,
                       ContinuePropagation,
                       InputMediaDocument,
                       InputMediaVideo,
