@@ -3,8 +3,6 @@ from helper.forcesub import ForceSub
 import config
 import asyncio
 import config
-from pyrogram.errors import FloodWait, UserNotParticipant
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 
 
 DOWNLOAD_LOCATION = "./Downloads"
