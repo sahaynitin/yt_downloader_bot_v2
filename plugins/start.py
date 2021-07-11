@@ -3,7 +3,9 @@ from pyrogram import Client, Filters, StopPropagation, InlineKeyboardButton, Inl
 
 @Client.on_message(Filters.command(["start"]), group=-2)
 async def start(client, message):
-    # return
+    FSub = await ForceSub(bot, event)
+    if FSub == 400:
+        return 
     joinButton = InlineKeyboardMarkup([
         [InlineKeyboardButton("Developer🧑‍💻", url="https://t.me/naviya2"),
         InlineKeyboardButton("Rate us ★", url="https://t.me/tlgrmcbot?start=leoyoutubedownloaderbot-review")],
