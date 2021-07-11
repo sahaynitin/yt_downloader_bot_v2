@@ -2,7 +2,6 @@ from pyrogram import Client, Filters, StopPropagation, InlineKeyboardButton, Inl
 from helper.forcesub import ForceSub
 import asyncio
 import config
-from pyrogram.errors import FloodWait, UserNotParticipant
 
 
 @Client.on_message(Filters.command(["start"]), group=-2)
