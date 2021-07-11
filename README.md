@@ -11,7 +11,7 @@ A Simple  Youtube Downloader Bot (English)
 
 #### You can also tap the Deploy To Heroku button below to deploy straight to Heroku!
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Naviya2/LeoYTDownloaderBot/tree/main)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Naviya2/LeoYTDownloaderBot/tree/master)
 
 Join Our updates channel to get in touch with us * [Updates Channel](https://telegram.dog/new_ehi)
 
