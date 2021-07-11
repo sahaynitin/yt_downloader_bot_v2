@@ -1,6 +1,5 @@
-from pyrogram import Client
+from pyrogram import Client, Filters, StopPropagation, InlineKeyboardButton, InlineKeyboardMarkup
 import config
-from pyrogram import Filters
 import asyncio
 import config
 from pyrogram.errors import FloodWait, UserNotParticipant
