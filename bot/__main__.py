@@ -1,4 +1,5 @@
 from pyrogram import Client, Filters, StopPropagation, InlineKeyboardButton, InlineKeyboardMarkup
+from helper.foresub import ForceSub
 import config
 import asyncio
 import config
