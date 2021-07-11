@@ -1,4 +1,4 @@
-
+pyrogram
 asyncio
 TgCrypto
 https://raw.githubusercontent.com/HasibulKabir/pyrogramarchive/master/pyrogramasyncv0.18.0.zip
@@ -6,3 +6,8 @@ git+https://github.com/ytdl-org/youtube-dl
 wget
 pillow
 hachoir
+dnspython
+aiofiles
+motor
+pyromod
+psutil
