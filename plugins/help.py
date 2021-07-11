@@ -6,7 +6,7 @@ import asyncio
 import config
 
 
-@Client.on_message(Filters.command(["help"]))
+@Client.on_message(filters.command(["help"]))
 async def start(client, message):
     FSub = await ForceSub(bot, event)
     if FSub == 400:
