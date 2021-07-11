@@ -1,5 +1,5 @@
 from pyrogram import Client, Filters, StopPropagation, InlineKeyboardButton, InlineKeyboardMarkup, Message
-from helper.foresub import ForceSub
+from helper.forcesub import ForceSub
 import asyncio
 import config
 from pyrogram.errors import FloodWait, UserNotParticipant
