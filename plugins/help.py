@@ -1,5 +1,5 @@
 from pyrogram import Client
-from pyrogram impprt Filters
+from pyrogram import Filters
 import asyncio
 import config
 from pyrogram.errors import FloodWait, UserNotParticipant
