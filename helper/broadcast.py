@@ -86,13 +86,13 @@ async def broadcast_handler(m: Message):
     await out.delete()
     if failed == 0:
         await m.reply_text(
-            text=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed ☹️\n\n@leoyoutubedownloaderbot 🇱🇰",
+            text=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed 😊\n\n@leoyoutubedownloaderbot 🇱🇰",
             quote=True
         )
     else:
         await m.reply_document(
-            document='broadcast_details_of_LeoYTDownloaderBot.txt'
-            caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed☹️\n\n@leoyoutubedownloaderbot 🇱🇰",
+            document='broadcast.txt'
+            caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed 😊\n\n@leoyoutubedownloaderbot 🇱🇰",
             quote=True
         )
     await aiofiles.os.remove('broadcast.txt')
