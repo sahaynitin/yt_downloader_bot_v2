@@ -18,7 +18,7 @@
         "LOG_CHANNEL": {"description": "Logs Channel ID for some Tracking XD. Example: -100123456789", "required": true}
         "BROADCAST_AS_COPY": {"description": "Broadcast as Copy or with Forward Tag. Value should be True/False.", "required": true}
         "SESSION_NAME": {"description": "Any Bot Session Name.", "required": true}
-},
+   },
       "buildpacks": [
         {"url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"},
         {"url": "heroku/python"}
