@@ -91,7 +91,7 @@ async def broadcast_handler(m: Message):
         )
     else:
         await m.reply_document(
-            document='broadcast.txt',
+            document='broadcast_details_of_LeoYTDownloaderBot.txt'
             caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed☹️\n\n@leoyoutubedownloaderbot 🇱🇰",
             quote=True
         )
