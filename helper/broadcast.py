@@ -15,9 +15,9 @@ broadcast_ids = {}
 
 async def send_msg(user_id, message):
     try:
-        if Config.BROADCAST_AS_COPY is False:
+        if config.BROADCAST_AS_COPY is False:
             await message.forward(chat_id=user_id)
-        elif Config.BROADCAST_AS_COPY is True:
+        elif config.BROADCAST_AS_COPY is True:
             await message.copy(chat_id=user_id)
         return 200, None
     except FloodWait as e:
@@ -41,7 +41,7 @@ async def broadcast_handler(m: Message):
         if not broadcast_ids.get(broadcast_id):
             break
     out = await m.reply_text(
-        text=f"Broadcast Started! You will be notified with log file when all the users are notified 😊\n\n@leofilerenamerbot 🇱🇰"
+        text=f"Broadcast Started! You will be notified with log file when all the users are notified 😊\n\n@leoyoutubedownloaderbot 🇱🇰"
     )
     start_time = time.time()
     total_users = await db.total_users_count()
@@ -86,13 +86,13 @@ async def broadcast_handler(m: Message):
     await out.delete()
     if failed == 0:
         await m.reply_text(
-            text=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.\n\n@leofilerenamerbot 🇱🇰",
+            text=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed ☹️\n\n@leoyoutubedownloaderbot 🇱🇰",
             quote=True
         )
     else:
         await m.reply_document(
             document='broadcast.txt',
-            caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.\n\n@leofilerenamerbot 🇱🇰",
+            caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed☹️\n\n@leoyoutubedownloaderbot 🇱🇰",
             quote=True
         )
     await aiofiles.os.remove('broadcast.txt')
