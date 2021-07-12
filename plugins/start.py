@@ -1,9 +1,16 @@
-from pyrogram import Client, Filters, StopPropagation, InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram import Client, filters, StopPropagation
+from helper.forcesub import ForceSub
+from pyrogram.errors import FloodWait, UserNotParticipant
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
+import asyncio
+import config
 
 
-@Client.on_message(Filters.command(["start"]), group=-2)
+@Client.on_message(filters.command(["start"]), group=-2)
 async def start(client, message):
-    # return
+    FSub = await ForceSub(client, message)
+    if FSub == 400:
+        return 
     joinButton = InlineKeyboardMarkup([
         [InlineKeyboardButton("Developer🧑‍💻", url="https://t.me/naviya2"),
         InlineKeyboardButton("Rate us ★", url="https://t.me/tlgrmcbot?start=leoyoutubedownloaderbot-review")],
