@@ -1,13 +1,24 @@
+import os
+import time
+import psutil
+import shutil
+import string
+import asyncio
+import config
+from asyncio import TimeoutError
+from helper.database.access_db import db
+from helper.broadcast import broadcast_handler
+from helper.database.add_user import AddUserToDatabase
+from helper.display_progress import humanbytes
 from pyrogram import Client, filters, StopPropagation
 from helper.forcesub import ForceSub
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-import asyncio
-import config
 
 
 @Client.on_message(filters.command(["start"]), group=-2)
 async def start(client, message):
+    await AddUserToDatabase(client, message)
     FSub = await ForceSub(client, message)
     if FSub == 400:
         return 
