@@ -92,7 +92,7 @@ async def broadcast_handler(m: Message):
     else:
         await m.reply_document(
             document='broadcast.txt'
-            caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.\n\n@leoyoutubedownloaderbot 🇱🇰",
+            caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.\n\n@leoyoutubedownloaderbot",
             quote=True
         )
     await aiofiles.os.remove('broadcast.txt')
