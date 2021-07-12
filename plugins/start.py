@@ -8,7 +8,7 @@ import config
 
 @Client.on_message(filters.command(["start"]), group=-2)
 async def start(client, message):
-    FSub = await ForceSub(bot, event)
+    FSub = await ForceSub(client, message)
     if FSub == 400:
         return 
     joinButton = InlineKeyboardMarkup([
