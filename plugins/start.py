@@ -31,6 +31,6 @@ async def start(client, message):
         
         [InlineKeyboardButton("➕ Add me to your group ➕", url="https://t.me/leoyoutubedownloaderbot?startgroup=true")]
     ])
-    welcomed = f"Hello <b>{message.from_user.first_name}👋\n\nYou are Warmly welcome to Leo YT Downloader Bot 🇱🇰</b>\n\nIf you want to know how i works just touch on /help command 🙂"
+    welcomed = f"Hello <b>{message.from_user.mention}👋\n\nYou are Warmly welcome to Leo YT Downloader Bot 🇱🇰</b>\n\nIf you want to know how i works just touch on /help command 🙂"
     await message.reply_text(welcomed, reply_markup=joinButton)
     raise StopPropagation
