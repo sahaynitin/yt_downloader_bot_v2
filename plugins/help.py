@@ -20,6 +20,6 @@ async def start(client, message):
     await AddUserToDatabase(client, message)
     FSub = await ForceSub(client, message)
     if FSub == 400:
-        return 
-    helptxt = f"<u>🆘Help Menu Of Leo YT Downloader Bot🆘</u>\n\n\n<b>🔰 Currently Only Support single urls(Don't Send Playlists) 🔰\n\nJust follow the below steps to download any youtube video😊👇\n\n1.Just Send Youtube Url in to this Bot 🙂\n\n2.Select The Quality and Format🙂\n\n3.Then select Type of Your Out put🙂</b>"
+        return
+    helptxt = f"Hey {message.from.user_mention},\n\nPlease follow the below instructions to download any youtube video😊👇\n\n<code>1.Just Send Youtube Url in to this Bot..</code>\n\n<code>2.Select The Quality and Format..</code>\n\n<code>3.Then select Type of Your Output(Video/Doc)..</code>\n\n<b>NOTE : Currently only support single urls.. Do not send playlists 😊</b>"
     await message.reply_text(helptxt)
