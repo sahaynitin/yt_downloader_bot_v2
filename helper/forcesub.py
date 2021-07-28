@@ -1,3 +1,4 @@
+# © Naviya2
 
 import asyncio
 import config
@@ -17,7 +18,7 @@ async def ForceSub(bot: Client, event: Message):
     """
     
     try:
-        invite_link = await bot.create_chat_invite_link(chat_id=(int(config.UPDATES_CHANNEL) if config.UPDATES_CHANNEL.startswith("-100") else config.UPDATES_CHANNEL))
+        invite_link = await bot.create_chat_invite_link(chat_id=(int(config.UPDATES_CHANNEL)))
     except FloodWait as e:
         await asyncio.sleep(e.x)
         fix_ = await ForceSub(bot, event)
@@ -26,7 +27,7 @@ async def ForceSub(bot: Client, event: Message):
         print(f"Unable to do Force Subscribe to {config.UPDATES_CHANNEL}\n\nError: {err}\n\nContact Support Group: https://t.me/leosupportx")
         return 200
     try:
-        user = await bot.get_chat_member(chat_id=(int(config.UPDATES_CHANNEL) if config.UPDATES_CHANNEL.startswith("-100") else config.UPDATES_CHANNEL), user_id=event.from_user.id)
+        user = await bot.get_chat_member(chat_id=(int(config.UPDATES_CHANNEL)), user_id=event.from_user.id)
         if user.status == "kicked":
             await bot.send_message(
                 chat_id=event.from_user.id,
@@ -41,7 +42,7 @@ async def ForceSub(bot: Client, event: Message):
     except UserNotParticipant:
         await bot.send_message(
             chat_id=event.from_user.id,
-            text="**Hey there 👋\n\nYou cant use me untill subscribe our updates channel ☹️\n\nSo Please join our updates channel by the following button and restart our bot by ' /start ' command😊",
+            text="**Hey {}👋\n\nYou cant use me untill subscribe our updates channel ☹️\n\nSo Please join our updates channel by the following button and restart our bot by ' /start ' command 😊".format(event.from_user mention),
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
