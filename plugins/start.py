@@ -16,7 +16,7 @@ from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 
 START_TEXT = """
-Hello {} 👋
+<b>Hello {} 👋
 
 I'm Leo YT Downloader Bot 🇱🇰
 
@@ -25,12 +25,13 @@ I can download any youtube video within a short time 🙂
 If you want to know how to use this bot just
 touch on " Help 🆘 "  Button 😊
 
-Leo Projects 🇱🇰 
+Leo Projects 🇱🇰</b> 
 """    
-    HELP_TEXT = """
-Hey {},
+    
+HELP_TEXT = """
+<b>Hey {},
 
-Please follow the below instructions to download any youtube video😊👇
+Please follow the below instructions to download any youtube video😊👇</b>
 
 <code>1.Just Send Youtube Url in to this Bot..</code>
 <code>2.Select The Quality and Format..</code>
@@ -38,7 +39,8 @@ Please follow the below instructions to download any youtube video😊👇
 
 <b>NOTE : Currently only support single urls.. Do not send playlists 😊</b>
 """
-    ABOUT_TEXT = """
+    
+ABOUT_TEXT = """
 🔰 **Bot :** [Leo YT Downloader Bot 🇱🇰](https://t.me/leoyoutubedownloaderbot)
 🔰 **Developer :** [Naviya 🇱🇰🇱🇰](https://telegram.me/naviya2)
 🔰 **Updates Channel :** [Leo Updates 🇱🇰](https://telegram.me/new_ehi)
@@ -47,10 +49,11 @@ Please follow the below instructions to download any youtube video😊👇
 🔰 **Library :** [Pyrogram v1.2.0](https://pyrogram.org)
 🔰 **Server :** [VPS](https://www.digitalocean.com)
 """
-    INFO_TEXT = """
-Hey {mention},
+    
+INFO_TEXT = """
+<b>Hey {mention},
 
-Your details are here 😊
+Your details are here 😊</b>
 
 🔰 **First Name :** `{first_name}`
 🔰 **Last Name  :** `{last_name}`
@@ -58,7 +61,7 @@ Your details are here 😊
 🔰 **User Id    :** `{user_id}`
 """
 
-    START_BUTTONS = InlineKeyboardMarkup(
+START_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('Developer🧑‍💻', url='https://telegram.me/naviya2'),
         InlineKeyboardButton('Rate us ★', url='https://t.me/tlgrmcbot?start=leoyoutubedownloaderbot-review')
@@ -71,7 +74,7 @@ Your details are here 😊
         InlineKeyboardButton('➕ Add me to your group ➕', url='https://t.me/leoyoutubedownloaderbot?startgroup=true')
         ]]
     )
-    HELP_BUTTONS = InlineKeyboardMarkup(
+HELP_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('Home 🏠', callback_data='home'),
         InlineKeyboardButton('About ❗️', callback_data='about'),
@@ -80,7 +83,7 @@ Your details are here 😊
         InlineKeyboardButton('Close ❎', callback_data='close')
         ]]
     )
-    ABOUT_BUTTONS = InlineKeyboardMarkup(
+ABOUT_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('Home 🏠', callback_data='home'),
         InlineKeyboardButton('Help 🆘', callback_data='help'),
@@ -89,7 +92,7 @@ Your details are here 😊
         InlineKeyboardButton('Close ❎', callback_data='close')
         ]]
     )
-    INFO_BUTTONS = InlineKeyboardMarkup(
+INFO_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('Home 🏠', callback_data='home'),
         InlineKeyboardButton('About ❗️', callback_data='about'),
@@ -126,6 +129,46 @@ async def cb_data(client, message):
             reply_markup=INFO_BUTTONS,
             disable_web_page_preview=True
         )
+    elif message.data == "refreshme":
+        if config.UPDATES_CHANNEL:
+            invite_link = await client.create_chat_invite_link(int(config.UPDATES_CHANNEL))
+            try:
+                user = await client.get_chat_member(int(config.UPDATES_CHANNEL), message.message.chat.id)
+                if user.status == "kicked":
+                    await message.message.edit(
+                        text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/leosupportx).",
+                        parse_mode="markdown",
+                        disable_web_page_preview=True
+                    )
+                    return
+            except UserNotParticipant:
+                await message.message.edit(
+                    text="<b>Hey</b> {},\n\n<b>You still didn't join our Updates Channel ☹️ \nPlease Join and hit on the 'Refresh 🔄' Button</b>".format(message.from_user.mention),
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                            [
+                                InlineKeyboardButton("Join Our Updates Channel 🗣", url=invite_link.invite_link)
+                            ],
+                            [
+                                InlineKeyboardButton("Refresh 🔄", callback_data="refreshme")
+                            ]
+                        ]
+                    ),
+                    parse_mode="HTML"
+                )
+                return
+            except Exception:
+                await message.message.edit(
+                    text="Something went Wrong. Contact my [Support Group](https://t.me/leosupportx).",
+                    parse_mode="markdown",
+                    disable_web_page_preview=True
+                )
+                return
+        await message.message.edit(
+            text=START_TEXT.format(message.from_user.mention),
+            disable_web_page_preview=True,
+            reply_markup=START_BUTTONS,
+        )
     else:
         await message.message.delete()
         
@@ -136,7 +179,7 @@ async def start(client, message):
     if FSub == 400:
         return 
     await message.reply_text(
-        text=Translation.START_TEXT.format(message.from_user.mention),
+        text=START_TEXT.format(message.from_user.mention),
         disable_web_page_preview=True,
-        reply_markup=Translation.START_BUTTONS
+        reply_markup=START_BUTTONS
     )
