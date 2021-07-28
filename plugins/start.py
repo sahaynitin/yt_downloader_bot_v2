@@ -60,6 +60,15 @@ Your details are here 😊</b>
 🔰 **Username   :** @{username}
 🔰 **User Id    :** `{user_id}`
 """
+ABOUT_DEV_TEXT = """
+<b>Developer is a Super Noob 😅
+
+You can find him in telegram as @naviya2 🇱🇰
+
+Developer's github account : [Github](https://github.com/Naviya2) 🇱🇰
+
+If you find any error on this bot please be kind to tell [Developer](https://t.me/naviya2) or in our [Support Group](https://t.me/leosupportx) 😊</b>
+"""
 
 START_BUTTONS = InlineKeyboardMarkup(
         [[
@@ -87,7 +96,7 @@ ABOUT_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('Home 🏠', callback_data='home'),
         InlineKeyboardButton('Help 🆘', callback_data='help'),
-        InlineKeyboardButton('User Info ❗', callback_data='info')
+        InlineKeyboardButton('About Dev 🧑‍💻', callback_data='aboutdev')
         ],[
         InlineKeyboardButton('Close ❎', callback_data='close')
         ]]
@@ -101,6 +110,15 @@ INFO_BUTTONS = InlineKeyboardMarkup(
         InlineKeyboardButton('Close ❎', callback_data='close')
         ]]
     )
+ABOUT_DEV_BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('Home 🏠', callback_data='home'),
+        InlineKeyboardButton('Help 🆘', callback_data='help'),
+        InlineKeyboardButton('About ❗️', callback_data='about')
+        ],[
+        InlineKeyboardButton('Close ❎', callback_data='close')
+        ]]
+    ) 
 
 
 @Client.on_callback_query()
@@ -127,6 +145,12 @@ async def cb_data(client, message):
         await message.message.edit_text(
             text=INFO_TEXT.format(username=message.from_user.username, first_name=message.from_user.first_name, last_name=message.from_user.last_name, user_id=message.from_user.id, mention=message.from_user.mention),
             reply_markup=INFO_BUTTONS,
+            disable_web_page_preview=True
+        )
+    elif message.data == "aboutdev":
+        await message.message.edit_text(
+            text=ABOUT_DEV_TEXT,
+            reply_markup=ABOUT_DEV_BUTTONS,
             disable_web_page_preview=True
         )
     elif message.data == "refreshme":
