@@ -6,6 +6,7 @@ import string
 import asyncio
 import config
 from asyncio import TimeoutError
+from plugins.youtube_callback_data import catch_youtube_fmtid, catch_youtube_dldata
 from helper.database.access_db import db
 from helper.broadcast import broadcast_handler
 from helper.database.add_user import AddUserToDatabase
