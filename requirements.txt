@@ -2,7 +2,6 @@ pyrogram
 asyncio
 TgCrypto
 https://raw.githubusercontent.com/HasibulKabir/pyrogramarchive/master/pyrogramasyncv0.18.0.zip
-https://github.com/Mahesh0253/pyrogram/archive/inline.zip
 git+https://github.com/ytdl-org/youtube-dl
 wget
 pillow
