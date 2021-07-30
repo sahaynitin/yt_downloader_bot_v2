@@ -71,6 +71,8 @@ Developer's github account : [Github](https://github.com/Naviya2) 🇱🇰
 If you find any error on this bot please be kind to tell [Developer](https://t.me/naviya2) or in our [Support Group](https://t.me/leosupportx) 😊</b>
 """
 
+IMG = "https://telegra.ph/file/af76422dba43437669422.jpg"
+
 START_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('Developer🧑‍💻', url='https://telegram.me/naviya2'),
@@ -205,8 +207,8 @@ async def start(client, message):
     FSub = await ForceSub(client, message)
     if FSub == 400:
         return 
-    await message.reply_text(
-        text=START_TEXT.format(message.from_user.mention),
-        disable_web_page_preview=True,
+    await message.reply_photo(
+        IMG,
+        caption=START_TEXT.format(message.from_user.mention),
         reply_markup=START_BUTTONS
     )
