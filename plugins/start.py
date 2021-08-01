@@ -125,7 +125,7 @@ ABOUT_DEV_BUTTONS = InlineKeyboardMarkup(
 
 
 @Client.on_callback_query()
-async def cb_data(client, message):
+async def button(client, message):
     if message.data == "home":
         await message.message.edit_text(
             text=START_TEXT.format(message.from_user.mention),
