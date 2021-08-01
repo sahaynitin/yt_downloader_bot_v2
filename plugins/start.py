@@ -126,8 +126,6 @@ ABOUT_DEV_BUTTONS = InlineKeyboardMarkup(
 
 @Client.on_callback_query()
 async def cb_data(client, message):
-    await catch_youtube_fmtid(client, message)
-    await catch_youtube_dldata(client, message)
     if message.data == "home":
         await message.message.edit_text(
             text=START_TEXT.format(message.from_user.mention),
