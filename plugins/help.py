@@ -23,5 +23,5 @@ async def start(client, message):
         return
     await message.reply_animation(
         HELP_ANIMATION,
-        caption="Hey {message.from_user.mention},\n\nPlease follow the below instructions to download any youtube video😊👇\n\n<code>1.Just Send Youtube Url in to this Bot..</code>\n\n<code>2.Select The Quality and Format..</code>\n\n<code>3.Then select Type of Your Output(Video/Doc)..</code>\n\n<b>NOTE : Currently only support single urls.. Do not send playlists 😊</b>".format(message.from_user.mention)
+        caption="Hey {},\n\nPlease follow the below instructions to download any youtube video😊👇\n\n<code>1.Just Send Youtube Url in to this Bot..</code>\n\n<code>2.Select The Quality and Format..</code>\n\n<code>3.Then select Type of Your Output(Video/Doc)..</code>\n\n<b>NOTE : Currently only support single urls.. Do not send playlists 😊</b>".format(message.from_user.mention)
     )
