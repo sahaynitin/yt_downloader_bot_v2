@@ -15,6 +15,7 @@ from helper.forcesub import ForceSub
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 
+START_ANIMATION = "https://telegra.ph/file/99a290331575e4c2d60d7.mp4"
 
 @Client.on_message(filters.command(["start"]), group=-2)
 async def start(client, message):
@@ -31,6 +32,8 @@ async def start(client, message):
         
         [InlineKeyboardButton("➕ Add me to your group ➕", url="https://t.me/leoyoutubedownloaderbot?startgroup=true")]
     ])
-    welcomed = f"Hello <b>{message.from_user.mention}👋\n\nYou are Warmly welcome to Leo YT Downloader Bot 🇱🇰</b>\n\nIf you want to know how i works just touch on /help command 🙂"
-    await message.reply_text(welcomed, reply_markup=joinButton)
-    raise StopPropagation
+    await message.reply_animation(
+        START_ANIMATION,
+        caption="Hello{}👋\n\nYou are Warmly welcome to Leo YT Downloader Bot 🇱🇰</b>\n\nIf you want to know how i works just hit on /help command 🙂".format(message.from_user.mention),
+        reply_markup=joinButton
+    )
