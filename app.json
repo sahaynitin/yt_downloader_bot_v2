@@ -16,7 +16,6 @@
         "BOT_OWNER": {"description": "Bot Owner UserID", "required": true},
         "MONGODB_URI": {"description": "MongoDB Database URI for Saving UserID for Broadcast", "required": true},
         "LOG_CHANNEL": {"description": "Logs Channel ID for some Tracking XD. Example: -100123456789", "required": true},
-        "BROADCAST_AS_COPY": {"description": "Broadcast as Copy or with Forward Tag. Value should be True/False.", "required": true},
         "SESSION_NAME": {"description": "Any Bot Session Name.", "required": true}
    },
       "buildpacks": [
