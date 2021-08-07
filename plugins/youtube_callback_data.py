@@ -20,11 +20,11 @@ async def catch_youtube_fmtid(c, m):
         print(media_type)
         if media_type == 'audio':
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton(
-                "Audio", callback_data=f"{media_type}||{format_id}||{yturl}"), InlineKeyboardButton("Document",
+                "Audio 🎵", callback_data=f"{media_type}||{format_id}||{yturl}"), InlineKeyboardButton("Document 🗂",
                                                                                                     callback_data=f"docaudio||{format_id}||{yturl}")]])
         else:
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton(
-                "Video", callback_data=f"{media_type}||{format_id}||{yturl}"), InlineKeyboardButton("Document",
+                "Video 🎥", callback_data=f"{media_type}||{format_id}||{yturl}"), InlineKeyboardButton("Document 🗂",
                                                                                                     callback_data=f"docvideo||{format_id}||{yturl}")]])
 
         await m.edit_message_reply_markup(buttons)
@@ -71,7 +71,7 @@ async def catch_youtube_dldata(c, q):
     await q.edit_message_reply_markup(
         InlineKeyboardMarkup([[InlineKeyboardButton("Downloading ⌛", callback_data="down")]]))
     filepath = os.path.join(userdir, filext)
-    # await q.edit_message_reply_markup([[InlineKeyboardButton("Processing ⌛")]])
+    # await q.edit_message_reply_markup([[InlineKeyboardButton("I am processing your link 💫\n\nPlease wait ❗")]])
 
     audio_command = [
         "youtube-dl",
@@ -144,7 +144,7 @@ async def send_file(c, q, med, filename):
     print(med)
     try:
         await q.edit_message_reply_markup(
-            InlineKeyboardMarkup([[InlineKeyboardButton("Now I'm Uploading your Video to Telegram 😊", callback_data="down")]]))
+            InlineKeyboardMarkup([[InlineKeyboardButton("Now I'm Uploading your Video to Telegram 📥", callback_data="down")]]))
         await c.send_chat_action(chat_id=q.message.chat.id, action="upload_document")
         # this one is not working
         await q.edit_message_media(media=med)
