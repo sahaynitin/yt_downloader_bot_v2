@@ -30,6 +30,8 @@ async def start(client, message):
         [InlineKeyboardButton("Updates Channel 🗣", url="https://t.me/new_ehi"),
         InlineKeyboardButton("Support Group 👥", url="https://t.me/leosupportx")],
         
+        [InlineKeyboardButton("Totorial Video 💫", url="https://t.me/new_ehi/353")],
+        
         [InlineKeyboardButton("➕ Add me to your group ➕", url="https://t.me/leoyoutubedownloaderbot?startgroup=true")]
     ])
     await message.reply_animation(
