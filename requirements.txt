@@ -11,3 +11,8 @@ aiofiles
 motor
 pyromod
 psutil
+python-dotenv
+youtube_search_python
+youtube_search
+dnspython
+gitpython
