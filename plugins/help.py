@@ -24,8 +24,12 @@ async def start(client, message):
     await message.reply_animation(
         HELP_ANIMATION,
         caption="Hey {},\n\nPlease follow the below instructions to download any youtube video😊👇\n\n<code>1.Just Send Youtube Url in to this Bot..(You can search inline and get yt link in this bot 🙃 to do that, simply type bot's user name in your type bar and type the name of your video)</code>\n\n<code>2.Select The Quality and Format..</code>\n\n<code>3.Then select Type of Your Output(Video/Doc)..</code>\n\n<b>Note : Currently only support single urls.. Do not send playlists 😊</b>\n\n<b>You can watch our video tutorial by the below button</b>".format(message.from_user.mention),
-        reply_markup=InlineKeyboardMarkup[
-            InlineKeyboardButton('Tutuorial Video 💫', url='https://t.me/new_ehi/353')
-        ]
+        reply_markup=InlineKeyboardMarkup(
+            [
+            
+                InlineKeyboardButton("Tutuorial Video 💫", url="https://t.me/new_ehi/353"),
+             
+            ]
+        )
     )
    
