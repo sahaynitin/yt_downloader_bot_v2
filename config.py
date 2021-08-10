@@ -1,6 +1,6 @@
 import  os
 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "1745816793:AAGzEcqMoAwUOyYznx4qGQjAcLixNliSO-A")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "1745816793:AAGxQggoHrGB2EWTzXmCUoLMD85s4KgyHDY")
 APP_ID = int(os.environ.get("API_ID", 2158704))
 API_HASH = os.environ.get("API_HASH", "227f3bd8c1d7fc3ecfa243e1a85dd2fa")
 UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", -1001231683570)
