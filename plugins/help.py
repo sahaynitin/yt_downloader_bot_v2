@@ -29,7 +29,7 @@ async def start(client, message):
             
                 InlineKeyboardButton("Tutuorial Video 💫", url="https://t.me/new_ehi/353"),
              
-            ]
-        )
+            ],
+        ),
     )
    
