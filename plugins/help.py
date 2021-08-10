@@ -13,7 +13,7 @@ from helper.forcesub import ForceSub
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 
-HELP_ANIMATION = "https://telegra.ph/file/0b0d158e6523ad7962b7e.mp4"
+HELP_ANIMATION = "https://telegra.ph/file/fd5dfce98297d6df58915.jpg"
 
 @Client.on_message(filters.command(["help"]))
 async def start(client, message):
@@ -21,7 +21,7 @@ async def start(client, message):
     FSub = await ForceSub(client, message)
     if FSub == 400:
         return
-    await message.reply_animation(
+    await message.reply_photo(
         HELP_ANIMATION,
         caption="Hey {},\n\nPlease follow the below instructions to download any youtube video😊👇\n\n<code>1.Just Send Youtube Url in to this Bot..(You can search inline and get yt link in this bot 🙃 to do that, simply type bot's user name in your type bar and type the name of your video)</code>\n\n<code>2.Select The Quality and Format..</code>\n\n<code>3.Then select Type of Your Output(Video/Doc)..</code>\n\n<b>Note : Currently only support single urls.. Do not send playlists 😊</b>\n\n<b>You can watch our video tutorial by the below button</b>".format(message.from_user.mention),
         reply_markup=InlineKeyboardMarkup(
