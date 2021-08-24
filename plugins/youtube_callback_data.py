@@ -158,7 +158,7 @@ async def send_file(c, q, med, filename):
         except:
             pass
         
- async def cbdata(c,q):
+async def cbdata(c, q):
     if q.data == "dl":
         await q.answer("Now I'm Downloading ⌛\n\nPlease Wait !!", show_allert=True)
     elif q.data == "upl":
