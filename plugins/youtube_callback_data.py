@@ -69,7 +69,7 @@ async def catch_youtube_dldata(c, q):
     if not os.path.isdir(userdir):
         os.makedirs(userdir)
     await q.edit_message_reply_markup(
-        InlineKeyboardMarkup([[InlineKeyboardButton("Now I'm Downloading ⌛", callback_data="down")]]))
+        InlineKeyboardMarkup([[InlineKeyboardButton("View Status ⏳", callback_data="dl")]]))
     filepath = os.path.join(userdir, filext)
     # await q.edit_message_reply_markup([[InlineKeyboardButton("I am processing your link 💫\n\nPlease wait ❗")]])
 
@@ -157,3 +157,9 @@ async def send_file(c, q, med, filename):
             os.remove(thumb_image_path)
         except:
             pass
+        
+ async def cbdata(c,q):
+    if q.data == "dl":
+        await q.answer("Now I'm Downloading ⌛\n\nPlease Wait !!", show_allert=True)
+    elif q.data == "upl":
+        await q.answer("Now I'm Uploading 📥\n\nPlease Wait !!", show_allert=True)
