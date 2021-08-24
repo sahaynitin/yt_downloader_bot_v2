@@ -33,11 +33,11 @@ async def catch_youtube_fmtid(c, m):
         raise ContinuePropagation
 
 @Client.on_callback_query()
-async def cbdata(c, q):
-    if q.data == "dl":
-        await q.answer("Now I'm Downloading ⌛\n\nPlease Wait !!", show_allert=True)
-    elif q.data == "upl":
-        await q.answer("Now I'm Uploading 📥\n\nPlease Wait !!", show_allert=True)
+async def cbdt(c, x):
+    if x.data == "dl":
+        await x.answer("Now I'm Downloading ⌛\n\nPlease Wait !!", show_allert=True)
+    elif x.data == "upl":
+        await x.answer("Now I'm Uploading 📥\n\nPlease Wait !!", show_allert=True)
 
 
 @Client.on_callback_query()
