@@ -11,13 +11,6 @@ from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 
 @Client.on_callback_query()
-async def cbdata(c, q):
-    if q.data == "dl":
-        await q.answer("Now I'm Downloading ⌛\n\nPlease Wait !!", show_allert=True)
-    elif q.data == "upl":
-        await q.answer("Now I'm Uploading 📥\n\nPlease Wait !!", show_allert=True)
-
-@Client.on_callback_query()
 async def catch_youtube_fmtid(c, m):
     cb_data = m.data
     if cb_data.startswith("ytdata||"):
@@ -38,6 +31,13 @@ async def catch_youtube_fmtid(c, m):
 
     else:
         raise ContinuePropagation
+
+@Client.on_callback_query()
+async def cbdata(c, q):
+    if q.data == "dl":
+        await q.answer("Now I'm Downloading ⌛\n\nPlease Wait !!", show_allert=True)
+    elif q.data == "upl":
+        await q.answer("Now I'm Uploading 📥\n\nPlease Wait !!", show_allert=True)
 
 
 @Client.on_callback_query()
