@@ -1,22 +1,3 @@
-Skip to content
-Naviya2
-/
-LeoYTDownloaderBot
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-LeoYTDownloaderBot/plugins/youtube_callback_data.py
-@Naviya2
-Naviya2 Update youtube_callback_data.py
- 1 contributor
-159 lines (141 sloc)  5.43 KB
 import asyncio
 import os
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup,  InputMediaDocument, InputMediaVideo, InputMediaAudio                     
