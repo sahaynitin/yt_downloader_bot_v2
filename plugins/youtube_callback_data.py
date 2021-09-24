@@ -1,6 +1,8 @@
 import asyncio
 import os
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup,  InputMediaDocument, InputMediaVideo, InputMediaAudio                     
+import time
+from helper.display_progress import humanbytes, progress_for_pyrogram
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup,  InputMediaDocument, InputMediaVideo, InputMediaAudio, Message                     
 from pyrogram import (Client,
                       ContinuePropagation)
           
@@ -147,7 +149,8 @@ async def send_file(c, q, med, filename):
             InlineKeyboardMarkup([[InlineKeyboardButton("Now I'm Uploading 📥", callback_data="down")]]))
         await c.send_chat_action(chat_id=q.message.chat.id, action="upload_document")
         # this one is not working
-        await q.edit_message_media(media=med)
+        start_time = time.time()
+        await c.send_video(video=med, chat_id=q.message.chat.id, caption="Uploaded By : @leoyoutubedownloaderbot 🇱🇰", progress=progress_for_pyrogram, progress_args=["Uploading To Telegram 💫", start_time, q.message)
     except Exception as e:
         print(e)
         await q.edit_message_text(e)
