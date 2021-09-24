@@ -34,12 +34,6 @@ async def catch_youtube_fmtid(c, m):
 
 
 @Client.on_callback_query()
-async def cbdt(c, q):
-    if q.data == "dl":
-        await q.answer("Now I'm Downloading ⌛\n\nPlease Wait !!", show_allert=True)
-    elif q.data == "upl":
-        await q.answer("Now I'm Uploading 📥\n\nPlease Wait !!", show_allert=True)
-
 async def catch_youtube_dldata(c, q):
     cb_data = q.data.strip()
     #print(q.message.chat.id)
@@ -75,7 +69,7 @@ async def catch_youtube_dldata(c, q):
     if not os.path.isdir(userdir):
         os.makedirs(userdir)
     await q.edit_message_reply_markup(
-        InlineKeyboardMarkup([[InlineKeyboardButton("View Status ⏳", callback_data="dl")]]))
+        InlineKeyboardMarkup([[InlineKeyboardButton("Now I'm Downloading ⌛", callback_data="down")]]))
     filepath = os.path.join(userdir, filext)
     # await q.edit_message_reply_markup([[InlineKeyboardButton("I am processing your link 💫\n\nPlease wait ❗")]])
 
@@ -150,7 +144,7 @@ async def send_file(c, q, med, filename):
     print(med)
     try:
         await q.edit_message_reply_markup(
-            InlineKeyboardMarkup([[InlineKeyboardButton("View Status ⏳", callback_data="upl")]]))
+            InlineKeyboardMarkup([[InlineKeyboardButton("Now I'm Uploading 📥", callback_data="down")]]))
         await c.send_chat_action(chat_id=q.message.chat.id, action="upload_document")
         # this one is not working
         await q.edit_message_media(media=med)
@@ -163,4 +157,3 @@ async def send_file(c, q, med, filename):
             os.remove(thumb_image_path)
         except:
             pass
-        
