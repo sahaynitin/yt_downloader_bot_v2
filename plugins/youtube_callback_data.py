@@ -70,8 +70,8 @@ async def catch_youtube_dldata(c, q):
 
     if not os.path.isdir(userdir):
         os.makedirs(userdir)
-    await q.edit_message_reply_markup(
-        InlineKeyboardMarkup([[InlineKeyboardButton("Now I'm Downloading ⌛", callback_data="down")]]))
+    await c.send_chat_action(chat_id=q.message.chat.id, action="typing")
+    await q.message.reply_text("Now I'm Downloading ⌛")
     filepath = os.path.join(userdir, filext)
     # await q.edit_message_reply_markup([[InlineKeyboardButton("I am processing your link 💫\n\nPlease wait ❗")]])
 
@@ -145,12 +145,11 @@ async def catch_youtube_dldata(c, q):
 async def send_file(c, q, med, filename):
     print(med)
     try:
-        await q.edit_message_reply_markup(
-            InlineKeyboardMarkup([[InlineKeyboardButton("Now I'm Uploading 📥", callback_data="down")]]))
+        x=await q.edit_message_text(text="Now I'm Uploading 💫")
         await c.send_chat_action(chat_id=q.message.chat.id, action="upload_document")
         # this one is not working
         start_time = time.time()
-        await c.send_video(video=med, chat_id=q.message.chat.id, caption="Uploaded By : @leoyoutubedownloaderbot 🇱🇰", progress=progress_for_pyrogram, progress_args=["Uploading To Telegram 💫", start_time, q.message])
+        await c.send_video(video=med, chat_id=q.message.chat.id, caption="Uploaded By : @leoyoutubedownloaderbot 🇱🇰", progress=progress_for_pyrogram, progress_args=["Uploading To Telegram 💫", start_time, x], reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Share This Bot 💫", url="https://t.me/share/url?url=t.me/leoyoutubedownloaderbot")]]))
     except Exception as e:
         print(e)
         await q.edit_message_text(e)
