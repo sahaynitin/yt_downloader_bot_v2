@@ -71,7 +71,7 @@ async def catch_youtube_dldata(c, q):
     if not os.path.isdir(userdir):
         os.makedirs(userdir)
     await c.send_chat_action(chat_id=q.message.chat.id, action="typing")
-    await q.message.reply_text("Now I'm Downloading ⌛")
+    await q.edit_message.text("Now I'm Downloading ⌛")
     filepath = os.path.join(userdir, filext)
     # await q.edit_message_reply_markup([[InlineKeyboardButton("I am processing your link 💫\n\nPlease wait ❗")]])
 
