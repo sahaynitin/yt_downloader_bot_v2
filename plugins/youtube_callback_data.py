@@ -150,7 +150,7 @@ async def send_file(c, q, med, filename):
         await c.send_chat_action(chat_id=q.message.chat.id, action="upload_document")
         # this one is not working
         start_time = time.time()
-        await c.send_video(video=med, chat_id=q.message.chat.id, caption="Uploaded By : @leoyoutubedownloaderbot 🇱🇰", progress=progress_for_pyrogram, progress_args=["Uploading To Telegram 💫", start_time, q.message)
+        await c.send_video(video=med, chat_id=q.message.chat.id, caption="Uploaded By : @leoyoutubedownloaderbot 🇱🇰", progress=progress_for_pyrogram, progress_args=["Uploading To Telegram 💫", start_time, q.message])
     except Exception as e:
         print(e)
         await q.edit_message_text(e)
