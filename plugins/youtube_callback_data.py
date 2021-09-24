@@ -1,8 +1,25 @@
+Skip to content
+Naviya2
+/
+LeoYTDownloaderBot
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+LeoYTDownloaderBot/plugins/youtube_callback_data.py
+@Naviya2
+Naviya2 Update youtube_callback_data.py
+ 1 contributor
+159 lines (141 sloc)  5.43 KB
 import asyncio
 import os
-import time
-from helper.display_progress import humanbytes, progress_for_pyrogram
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup,  InputMediaDocument, InputMediaVideo, InputMediaAudio, Message                     
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup,  InputMediaDocument, InputMediaVideo, InputMediaAudio                     
 from pyrogram import (Client,
                       ContinuePropagation)
           
@@ -70,8 +87,8 @@ async def catch_youtube_dldata(c, q):
 
     if not os.path.isdir(userdir):
         os.makedirs(userdir)
-    await c.send_chat_action(chat_id=q.message.chat.id, action="typing")
-    await q.edit_message_text("Now I'm Downloading ⌛")
+    await q.edit_message_reply_markup(
+        InlineKeyboardMarkup([[InlineKeyboardButton("Now I'm Downloading ⌛", callback_data="down")]]))
     filepath = os.path.join(userdir, filext)
     # await q.edit_message_reply_markup([[InlineKeyboardButton("I am processing your link 💫\n\nPlease wait ❗")]])
 
@@ -145,11 +162,11 @@ async def catch_youtube_dldata(c, q):
 async def send_file(c, q, med, filename):
     print(med)
     try:
-        x=await q.edit_message_text(text="Now I'm Uploading 💫")
+        await q.edit_message_reply_markup(
+            InlineKeyboardMarkup([[InlineKeyboardButton("Now I'm Uploading 📥", callback_data="down")]]))
         await c.send_chat_action(chat_id=q.message.chat.id, action="upload_document")
         # this one is not working
-        start_time = time.time()
-        await c.send_video(video=med, chat_id=q.message.chat.id, caption="Uploaded By : @leoyoutubedownloaderbot 🇱🇰", progress=progress_for_pyrogram, progress_args=["Uploading To Telegram 💫", start_time, x], reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Share This Bot 💫", url="https://t.me/share/url?url=t.me/leoyoutubedownloaderbot")]]))
+        await q.edit_message_media(media=med)
     except Exception as e:
         print(e)
         await q.edit_message_text(e)
