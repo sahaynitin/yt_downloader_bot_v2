@@ -7,7 +7,7 @@ import aiofiles.os
 import traceback
 import config
 from helper.database.access_db import db
-from pyrogram.types import Message
+from pyrogram.types.messages_and_media import Message
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, PeerIdInvalid
 
 broadcast_ids = {}
