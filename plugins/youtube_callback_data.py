@@ -38,7 +38,7 @@ async def catch_youtube_dldata(c, q):
     cb_data = q.data.strip()
     #print(q.message.chat.id)
     # Callback Data Check
-    yturl = cb_data.split("||")[-1]
+    format_string = cb_data.split("||")[-1]
     format_id = cb_data.split("||")[-2]
     thumb_image_path = "/app/downloads" + \
         "/" + str(q.message.chat.id) + ".jpg"
@@ -81,7 +81,7 @@ async def catch_youtube_dldata(c, q):
         "--audio-format", "mp3",
         "--audio-quality", format_id,
         "-o", filepath,
-        yturl,
+        format_string,
 
     ]
 
@@ -91,7 +91,7 @@ async def catch_youtube_dldata(c, q):
         "--embed-subs",
         "-f", f"{format_id}+bestaudio",
         "-o", filepath,
-        "--hls-prefer-ffmpeg", yturl]
+        "--hls-prefer-ffmpeg", format_sting]
 
     loop = asyncio.get_event_loop()
 
