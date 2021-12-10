@@ -14,18 +14,18 @@ from hachoir.parser import createParser
 async def catch_youtube_fmtid(c, m):
     cb_data = m.data
     if cb_data.startswith("ytdata||"):
-        yturl = cb_data.split("||")[-1]
+        format_string = cb_data.split("||")[-1]
         format_id = cb_data.split("||")[-2]
         media_type = cb_data.split("||")[-3].strip()
         print(media_type)
         if media_type == 'audio':
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton(
-                "Audio 🎵", callback_data=f"{media_type}||{format_id}||{yturl}"), InlineKeyboardButton("Document 🗂",
-                                                                                                    callback_data=f"docaudio||{format_id}||{yturl}")]])
+                "Audio 🎵", callback_data=f"{media_type}||{format_id}||{format_string}"), InlineKeyboardButton("Document 🗂",
+                                                                                                    callback_data=f"docaudio||{format_id}||{format_string}")]])
         else:
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton(
-                "Video 🎥", callback_data=f"{media_type}||{format_id}||{yturl}"), InlineKeyboardButton("Document 🗂",
-                                                                                                    callback_data=f"docvideo||{format_id}||{yturl}")]])
+                "Video 🎥", callback_data=f"{media_type}||{format_id}||{format_string}"), InlineKeyboardButton("Document 🗂",
+                                                                                                    callback_data=f"docvideo||{format_id}||{format_string}")]])
 
         await m.edit_message_reply_markup(buttons)
 
@@ -74,7 +74,7 @@ async def catch_youtube_dldata(c, q):
     # await q.edit_message_reply_markup([[InlineKeyboardButton("I am processing your link 💫\n\nPlease wait ❗")]])
 
     audio_command = [
-        "youtube-dl",
+        "yt-dlp",
         "-c",
         "--prefer-ffmpeg",
         "--extract-audio",
@@ -86,7 +86,7 @@ async def catch_youtube_dldata(c, q):
     ]
 
     video_command = [
-        "youtube-dl",
+        "yt-dlp",
         "-c",
         "--embed-subs",
         "-f", f"{format_id}+bestaudio",
