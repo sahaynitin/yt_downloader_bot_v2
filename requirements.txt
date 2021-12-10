@@ -16,3 +16,4 @@ youtube_search_python
 youtube_search
 dnspython
 gitpython
+yt-dlp
