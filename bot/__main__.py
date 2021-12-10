@@ -5,10 +5,10 @@ import shutil
 import string
 import asyncio
 import config
-from helper.database.add_user import AddUserToDatabase
+
 from helper.display_progress import humanbytes
 from pyrogram import Client, filters, StopPropagation
-from helper.forcesub import ForceSub
+
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 
